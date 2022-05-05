@@ -16,6 +16,7 @@ To avoid some extra work, you can open the .bashrc file (you can see it from the
 You need to clone the following two github projects in your catkin_ws/src folder 
 
 rosserial (https://github.com/ros-drivers/rosserial) 
+
 DynamixelSDK (https://github.com/ROBOTIS-GIT/DynamixelSDK)
 
 COMMANDS TO CONTROL THE GAZEBO DIGITAL TWIN:
