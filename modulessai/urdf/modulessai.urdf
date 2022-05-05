@@ -1,0 +1,1690 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="modulessai">
+  <link
+    name="shell1">
+    <inertial>
+      <origin
+        xyz="-0.137752474041725 -0.28857138668512 -0.0911551999213709"
+        rpy="0 0 0" />
+      <mass
+        value="0.149969789596091" />
+      <inertia
+        ixx="0.000241116455312842"
+        ixy="-2.60925021680345E-07"
+        ixz="4.80846729441766E-06"
+        iyy="0.000295272937582447"
+        iyz="-7.25953669690205E-06"
+        izz="0.000232451898515766" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/shell1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.184313725490196 0.623529411764706 0.764705882352941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/shell1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="joint_enclosure1">
+    <inertial>
+      <origin
+        xyz="0.000728105326579437 0.0153717427480426 -1.38777878078145E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.086298769218844" />
+      <inertia
+        ixx="9.26816517396861E-05"
+        ixy="-4.43711727546318E-07"
+        ixz="-2.90469731967602E-19"
+        iyy="0.000134079311341853"
+        iyz="2.76344499041715E-20"
+        izz="8.33584269751399E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/joint_enclosure1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/joint_enclosure1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link1"
+    type="fixed">
+    <origin
+      xyz="-0.138611885720108 0.0874338259129821 -0.339597997361827"
+      rpy="-1.55293238419691 0 -3.14159265358979" />
+    <parent
+      link="shell1" />
+    <child
+      link="joint_enclosure1" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="scale1">
+    <inertial>
+      <origin
+        xyz="0.00180494203523468 0.00171959315377845 2.77555756156289E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.00277406773557276" />
+      <inertia
+        ixx="1.47877580081592E-06"
+        ixy="-6.2959094439328E-09"
+        ixz="4.52157602336799E-22"
+        iyy="1.54068706060032E-06"
+        iyz="-2.20276646159223E-20"
+        izz="6.9326362321011E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/scale1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.717647058823529 0.819607843137255 0.701960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/scale1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link2"
+    type="fixed">
+    <origin
+      xyz="-0.183611885720101 0.0876577175390072 -0.323751468327803"
+      rpy="0 -1.5529323841969 1.5707963267949" />
+    <parent
+      link="shell1" />
+    <child
+      link="scale1" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="scale2">
+    <inertial>
+      <origin
+        xyz="0.00180494203523462 0.00171959315377848 -2.77555756156289E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.00277406773557276" />
+      <inertia
+        ixx="1.47877580081592E-06"
+        ixy="-6.29590944393272E-09"
+        ixz="1.75019022698003E-21"
+        iyy="1.54068706060031E-06"
+        iyz="7.86684050294891E-22"
+        izz="6.93263623210111E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/scale2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.717647058823529 0.819607843137255 0.701960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/scale2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link3"
+    type="fixed">
+    <origin
+      xyz="-0.138611885720103 0.0426648975580864 -0.32294763366583"
+      rpy="1.5707963267944 -1.55293238419692 1.57079632679536" />
+    <parent
+      link="shell1" />
+    <child
+      link="scale2" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="scale3">
+    <inertial>
+      <origin
+        xyz="0.00180494203523474 0.00171959315377847 -1.38777878078145E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.00277406773557275" />
+      <inertia
+        ixx="1.47877580081591E-06"
+        ixy="-6.29590944393247E-09"
+        ixz="1.15288297874578E-22"
+        iyy="1.54068706060031E-06"
+        iyz="3.17440826385798E-22"
+        izz="6.93263623210108E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/scale3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.717647058823529 0.819607843137255 0.701960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/scale3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link4"
+    type="fixed">
+    <origin
+      xyz="-0.0936118857201089 0.0876577175390119 -0.323751468327802"
+      rpy="3.14159265358979 -1.5529323841969 1.57079632679488" />
+    <parent
+      link="shell1" />
+    <child
+      link="scale3" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="scale4">
+    <inertial>
+      <origin
+        xyz="0.00180494203523468 0.00171959315377848 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.00277406773557275" />
+      <inertia
+        ixx="1.47877580081592E-06"
+        ixy="-6.29590944393258E-09"
+        ixz="-1.96229555091384E-21"
+        iyy="1.54068706060032E-06"
+        iyz="8.4361466844145E-22"
+        izz="6.93263623210107E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/scale4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.717647058823529 0.819607843137255 0.701960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/scale4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link5"
+    type="fixed">
+    <origin
+      xyz="-0.138611885720101 0.132650537519933 -0.324555302989774"
+      rpy="-1.57079632679539 -1.55293238419692 1.57079632679536" />
+    <parent
+      link="shell1" />
+    <child
+      link="scale4" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="slide_clip1">
+    <inertial>
+      <origin
+        xyz="0.0234487598891086 0.00135531493757457 -0.00207575724154209"
+        rpy="0 0 0" />
+      <mass
+        value="0.00341955141627611" />
+      <inertia
+        ixx="2.23045867605256E-07"
+        ixy="-3.49967441924723E-08"
+        ixz="-2.11254063898286E-07"
+        iyy="1.45766429318795E-06"
+        iyz="-1.44678561290794E-08"
+        izz="1.47815966491544E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/slide_clip1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.6 0.23921568627451 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/slide_clip1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link6"
+    type="fixed">
+    <origin
+      xyz="-0.0956118857201107 0.045837319628965 -0.257341834819973"
+      rpy="1.5707963267949 0.0178639425979808 1.57079632679487" />
+    <parent
+      link="shell1" />
+    <child
+      link="slide_clip1" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="slide_clip2">
+    <inertial>
+      <origin
+        xyz="0.0234487598891086 -0.00135531493757463 -0.00207575724154208"
+        rpy="0 0 0" />
+      <mass
+        value="0.0034195514162761" />
+      <inertia
+        ixx="2.23045867605256E-07"
+        ixy="3.49967441924725E-08"
+        ixz="-2.11254063898287E-07"
+        iyy="1.45766429318795E-06"
+        iyz="1.44678561290795E-08"
+        izz="1.47815966491544E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/slide_clip2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.6 0.23921568627451 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/slide_clip2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link7"
+    type="fixed">
+    <origin
+      xyz="-0.181611885720103 0.0458373196289683 -0.257341834819973"
+      rpy="-1.5707963267949 0.0178639425979808 1.57079632679487" />
+    <parent
+      link="shell1" />
+    <child
+      link="slide_clip2" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="slide_arm">
+    <inertial>
+      <origin
+        xyz="-1.38777878078145E-16 -0.00481240110658876 0.0117181257665583"
+        rpy="0 0 0" />
+      <mass
+        value="0.0348117344572538" />
+      <inertia
+        ixx="9.03849739921105E-06"
+        ixy="-5.3280430666022E-20"
+        ixz="-3.97812755362216E-19"
+        iyy="4.17590858992555E-05"
+        iyz="5.70343658389085E-08"
+        izz="3.49135501039211E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/slide_arm.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.858823529411765 0.568627450980392 0.215686274509804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/slide_arm.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link8"
+    type="fixed">
+    <origin
+      xyz="0.0429999999999996 -0.0104999999999987 -0.0430000000000005"
+      rpy="3.14159265358979 1.5707963267949 0" />
+    <parent
+      link="slide_clip2" />
+    <child
+      link="slide_arm" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="slide_key">
+    <inertial>
+      <origin
+        xyz="-2.77555756156289E-17 0.0261791873249705 0.000493743649983239"
+        rpy="0 0 0" />
+      <mass
+        value="0.0788872703821433" />
+      <inertia
+        ixx="9.11147019581268E-05"
+        ixy="-8.87335562729999E-20"
+        ixz="-1.30304976498355E-19"
+        iyy="0.000144612810542726"
+        iyz="-1.56020046014635E-06"
+        izz="7.99530497194302E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/slide_key.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.807843137254902 0.509803921568627 0.729411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/slide_key.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link9"
+    type="fixed">
+    <origin
+      xyz="-0.138611885720102 0.0896074988950939 -0.214616884182071"
+      rpy="-1.5529323841969 0 -3.14159265358979" />
+    <parent
+      link="shell1" />
+    <child
+      link="slide_key" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="scale5">
+    <inertial>
+      <origin
+        xyz="0.00180494203523471 0.00171959315377845 1.38777878078145E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.00277406773557275" />
+      <inertia
+        ixx="1.47877580081591E-06"
+        ixy="-6.29590944393263E-09"
+        ixz="-1.90768528770042E-22"
+        iyy="1.54068706060031E-06"
+        iyz="-2.19860333819092E-20"
+        izz="6.93263623210107E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/scale5.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.717647058823529 0.819607843137255 0.701960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/scale5.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link10"
+    type="fixed">
+    <origin
+      xyz="0.044999999999999 -0.00142400000000018 0"
+      rpy="0 0 -1.5707963267949" />
+    <parent
+      link="slide_key" />
+    <child
+      link="scale5" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="scale6">
+    <inertial>
+      <origin
+        xyz="0.00180494203523471 0.00171959315377847 2.77555756156289E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.00277406773557275" />
+      <inertia
+        ixx="1.47877580081592E-06"
+        ixy="-6.29590944393274E-09"
+        ixz="2.27643895219469E-21"
+        iyy="1.54068706060031E-06"
+        iyz="-1.72724543618611E-21"
+        izz="6.93263623210109E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/scale6.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.717647058823529 0.819607843137255 0.701960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/scale6.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link11"
+    type="fixed">
+    <origin
+      xyz="0 -0.0014240000000004 0.045"
+      rpy="1.57079632679488 0 -1.57079632679489" />
+    <parent
+      link="slide_key" />
+    <child
+      link="scale6" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="scale7">
+    <inertial>
+      <origin
+        xyz="0.00180494203523471 0.00171959315377847 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.00277406773557276" />
+      <inertia
+        ixx="1.47877580081592E-06"
+        ixy="-6.29590944393265E-09"
+        ixz="5.6351679230175E-23"
+        iyy="1.54068706060032E-06"
+        iyz="5.21173611065069E-22"
+        izz="6.93263623210111E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/scale7.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.717647058823529 0.819607843137255 0.701960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/scale7.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link12"
+    type="fixed">
+    <origin
+      xyz="-0.045 -0.00142399999999981 0"
+      rpy="3.14159265358978 0 -1.5707963267949" />
+    <parent
+      link="slide_key" />
+    <child
+      link="scale7" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="scale8">
+    <inertial>
+      <origin
+        xyz="0.00180494203523471 0.00171959315377848 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.00277406773557276" />
+      <inertia
+        ixx="1.47877580081592E-06"
+        ixy="-6.29590944393263E-09"
+        ixz="-2.66115800927088E-21"
+        iyy="1.54068706060032E-06"
+        iyz="-1.7881667874025E-21"
+        izz="6.93263623210113E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/scale8.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.717647058823529 0.819607843137255 0.701960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/scale8.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link13"
+    type="fixed">
+    <origin
+      xyz="0 -0.00142400000000062 -0.044999999999999"
+      rpy="-1.57079632679491 0 -1.57079632679489" />
+    <parent
+      link="slide_key" />
+    <child
+      link="scale8" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="slide_key_joint1">
+    <inertial>
+      <origin
+        xyz="-0.00611883580857539 0.0105253613332661 -8.32667268468867E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.139120636589193" />
+      <inertia
+        ixx="0.00011952290446569"
+        ixy="2.35906411700336E-05"
+        ixz="-2.96355652420615E-19"
+        iyy="0.0001952269452155"
+        iyz="3.30131091192364E-19"
+        izz="0.000137197507218594" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/slide_key_joint1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.552941176470588 0.549019607843137 0.890196078431372 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/slide_key_joint1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link14"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 3.14159265358969" />
+    <parent
+      link="slide_key" />
+    <child
+      link="slide_key_joint1" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="joint_enclosure2">
+    <inertial>
+      <origin
+        xyz="0.000728105326579465 0.0153717427480425 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.0862987692188441" />
+      <inertia
+        ixx="9.26816517396861E-05"
+        ixy="-4.43711727546301E-07"
+        ixz="-1.34701800953061E-19"
+        iyy="0.000134079311341853"
+        iyz="4.95646481478354E-21"
+        izz="8.33584269751398E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/joint_enclosure2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 0 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/joint_enclosure2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link16"
+    type="fixed">
+    <origin
+      xyz="0 0.0837468487694076 0.00035279410164156"
+      rpy="-0.0178639425979842 0 -3.14159265358969" />
+    <parent
+      link="slide_key_joint1" />
+    <child
+      link="joint_enclosure2" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="shell2">
+    <inertial>
+      <origin
+        xyz="-0.00085941167838019 -0.00286850280401474 0.00708494395182878"
+        rpy="0 0 0" />
+      <mass
+        value="0.149969789596091" />
+      <inertia
+        ixx="0.000241116455312841"
+        ixy="-4.80303917300663E-06"
+        ixz="3.46777004692976E-07"
+        iyy="0.000232212631143815"
+        iyz="-6.13291115683898E-06"
+        izz="0.000295512204954397" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/shell2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.184313725490196 0.623529411764706 0.764705882352941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/shell2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link17"
+    type="fixed">
+    <origin
+      xyz="0 -0.043999999999996 5.92105263200055E-05"
+      rpy="1.57079632679491 0 0" />
+    <parent
+      link="joint_enclosure2" />
+    <child
+      link="shell2" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="scale9">
+    <inertial>
+      <origin
+        xyz="0.00180494203523471 0.00171959315377848 8.32667268468867E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.00277406773557275" />
+      <inertia
+        ixx="1.47877580081591E-06"
+        ixy="-6.2959094439327E-09"
+        ixz="-1.19189599054522E-22"
+        iyy="1.54068706060031E-06"
+        iyz="-1.4793884274204E-21"
+        izz="6.93263623210108E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/scale9.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.717647058823529 0.819607843137255 0.701960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/scale9.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link18"
+    type="fixed">
+    <origin
+      xyz="0 -0.0449999999999954 -0.0281519999999963"
+      rpy="0 -1.5707963267949 0" />
+    <parent
+      link="shell2" />
+    <child
+      link="scale9" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="scale10">
+    <inertial>
+      <origin
+        xyz="0.00180494203523469 0.00171959315377848 1.38777878078145E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.00277406773557276" />
+      <inertia
+        ixx="1.47877580081592E-06"
+        ixy="-6.29590944393266E-09"
+        ixz="2.10183701632039E-20"
+        iyy="1.54068706060032E-06"
+        iyz="-1.03458240094092E-22"
+        izz="6.93263623210108E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/scale10.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.717647058823529 0.819607843137255 0.701960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/scale10.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link19"
+    type="fixed">
+    <origin
+      xyz="-0.0449999999999958 0 -0.0281519999999962"
+      rpy="1.5707963267949 -1.5707963267949 0" />
+    <parent
+      link="shell2" />
+    <child
+      link="scale10" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="scale11">
+    <inertial>
+      <origin
+        xyz="0.00180494203523468 0.00171959315377847 -2.77555756156289E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.00277406773557276" />
+      <inertia
+        ixx="1.47877580081592E-06"
+        ixy="-6.29590944393265E-09"
+        ixz="7.07386108021792E-22"
+        iyy="1.54068706060031E-06"
+        iyz="-1.70248478291909E-21"
+        izz="6.9326362321011E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/scale11.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.717647058823529 0.819607843137255 0.701960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/scale11.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link20"
+    type="fixed">
+    <origin
+      xyz="0 0.0449999999999946 -0.0281519999999967"
+      rpy="3.14159265358979 -1.5707963267949 0" />
+    <parent
+      link="shell2" />
+    <child
+      link="scale11" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="scale12">
+    <inertial>
+      <origin
+        xyz="0.00180494203523472 0.00171959315377851 -1.38777878078145E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.00277406773557276" />
+      <inertia
+        ixx="1.47877580081592E-06"
+        ixy="-6.29590944393267E-09"
+        ixz="-2.11549896033941E-20"
+        iyy="1.54068706060032E-06"
+        iyz="9.56655464085523E-23"
+        izz="6.93263623210111E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/scale12.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.717647058823529 0.819607843137255 0.701960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/scale12.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link21"
+    type="fixed">
+    <origin
+      xyz="0.0449999999999962 0 -0.0281519999999967"
+      rpy="1.5707963267949 -1.5707963267949 0" />
+    <parent
+      link="shell2" />
+    <child
+      link="scale12" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="slide_clip3">
+    <inertial>
+      <origin
+        xyz="0.0234487598891084 -0.0013553149375747 -0.00207575724154238"
+        rpy="0 0 0" />
+      <mass
+        value="0.0034195514162761" />
+      <inertia
+        ixx="2.23045867605252E-07"
+        ixy="3.49967441924773E-08"
+        ixz="-2.11254063898272E-07"
+        iyy="1.45766429318795E-06"
+        iyz="1.44678561290803E-08"
+        izz="1.47815966491544E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/slide_clip3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.6 0.23921568627451 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/slide_clip3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link22"
+    type="fixed">
+    <origin
+      xyz="0.0429999999999968 0.0429999999999946 0.0374999999999956"
+      rpy="-1.57079632679489 0 -1.5707963267949" />
+    <parent
+      link="shell2" />
+    <child
+      link="slide_clip3" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="slide_arm2">
+    <inertial>
+      <origin
+        xyz="-2.77555756156289E-17 -0.00481240110658882 0.0117181257665583"
+        rpy="0 0 0" />
+      <mass
+        value="0.0348117344572539" />
+      <inertia
+        ixx="9.03849739921106E-06"
+        ixy="8.81047252945334E-22"
+        ixz="2.87950685439692E-21"
+        iyy="4.17590858992556E-05"
+        iyz="5.70343658389088E-08"
+        izz="3.49135501039212E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/slide_arm2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.858823529411765 0.568627450980392 0.215686274509804 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/slide_arm2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link24"
+    type="fixed">
+    <origin
+      xyz="0.042999999999999 -0.010499999999999 -0.043000000000001"
+      rpy="3.14159265358979 1.5707963267949 0" />
+    <parent
+      link="slide_clip3" />
+    <child
+      link="slide_arm2" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="slide_clip4">
+    <inertial>
+      <origin
+        xyz="0.0234487598891085 0.00135531493757467 -0.00207575724154178"
+        rpy="0 0 0" />
+      <mass
+        value="0.00341955141627611" />
+      <inertia
+        ixx="2.23045867605264E-07"
+        ixy="-3.49967441924764E-08"
+        ixz="-2.11254063898307E-07"
+        iyy="1.45766429318795E-06"
+        iyz="-1.44678561290807E-08"
+        izz="1.47815966491544E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/slide_clip4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.298039215686275 0.6 0.23921568627451 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/slide_clip4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link23"
+    type="fixed">
+    <origin
+      xyz="-0.0429999999999952 0.0429999999999966 0.0374999999999941"
+      rpy="1.5707963267949 0 -1.5707963267949" />
+    <parent
+      link="shell2" />
+    <child
+      link="slide_clip4" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="slide_key2">
+    <inertial>
+      <origin
+        xyz="0 0.0261791873249705 0.000493743649983586"
+        rpy="0 0 0" />
+      <mass
+        value="0.0788872703821434" />
+      <inertia
+        ixx="9.11147019581269E-05"
+        ixy="5.42290601080777E-20"
+        ixz="-9.93327290134446E-21"
+        iyy="0.000144612810542726"
+        iyz="-1.56020046014546E-06"
+        izz="7.99530497194301E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/slide_key2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.807843137254902 0.509803921568627 0.729411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/slide_key2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link25"
+    type="fixed">
+    <origin
+      xyz="0 0 0.080999999999995"
+      rpy="-1.57079632679491 0 0" />
+    <parent
+      link="shell2" />
+    <child
+      link="slide_key2" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="slide_key_joint_2">
+    <inertial>
+      <origin
+        xyz="-0.00611883580857434 0.0105253613332667 1.38777878078145E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.139120636589193" />
+      <inertia
+        ixx="0.000119522904465695"
+        ixy="2.35906411700413E-05"
+        ixz="-1.00524664473982E-20"
+        iyy="0.000195226945215495"
+        iyz="1.40316547446192E-20"
+        izz="0.000137197507218594" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/slide_key_joint_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.552941176470588 0.549019607843137 0.890196078431372 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/slide_key_joint_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link26"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 3.14159265358979" />
+    <parent
+      link="slide_key2" />
+    <child
+      link="slide_key_joint_2" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="Slide_key_joint_single2">
+    <inertial>
+      <origin
+        xyz="-5.13478148889135E-16 -0.00400640060057854 -0.0345669419794044"
+        rpy="0 0 0" />
+      <mass
+        value="0.0205196549446732" />
+      <inertia
+        ixx="8.52952925068962E-06"
+        ixy="-1.1796237736564E-22"
+        ixz="-9.24303762246536E-20"
+        iyy="1.06743834501377E-05"
+        iyz="-1.03900638216467E-08"
+        izz="2.36373305241899E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/Slide_key_joint_single2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.266666666666667 0.568627450980392 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/Slide_key_joint_single2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link27"
+    type="fixed">
+    <origin
+      xyz="-0.037000000000001 -0.00399999999999978 0"
+      rpy="1.57079632679489 -1.5707963267949 0" />
+    <parent
+      link="slide_key2" />
+    <child
+      link="Slide_key_joint_single2" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="scale13">
+    <inertial>
+      <origin
+        xyz="0.00180494203523469 0.00171959315377851 -1.38777878078145E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.00277406773557275" />
+      <inertia
+        ixx="1.47877580081592E-06"
+        ixy="-6.29590944393261E-09"
+        ixz="-2.09284346520812E-20"
+        iyy="1.54068706060031E-06"
+        iyz="2.69114495593736E-22"
+        izz="6.9326362321011E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/scale13.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.717647058823529 0.819607843137255 0.701960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/scale13.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link28"
+    type="fixed">
+    <origin
+      xyz="0.044999999999999 -0.00142400000000024 0"
+      rpy="0 0 -1.5707963267949" />
+    <parent
+      link="slide_key2" />
+    <child
+      link="scale13" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="scale14">
+    <inertial>
+      <origin
+        xyz="0.00180494203523469 0.00171959315377851 -5.55111512312578E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.00277406773557275" />
+      <inertia
+        ixx="1.47877580081591E-06"
+        ixy="-6.29590944393349E-09"
+        ixz="-1.25256798902654E-21"
+        iyy="1.54068706060031E-06"
+        iyz="-1.14939785423686E-22"
+        izz="6.93263623210107E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/scale14.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.717647058823529 0.819607843137255 0.701960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/scale14.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link29"
+    type="fixed">
+    <origin
+      xyz="0 -0.00142399999999999 -0.044999999999999"
+      rpy="-1.5707963267949 0 -1.5707963267949" />
+    <parent
+      link="slide_key2" />
+    <child
+      link="scale14" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="scale15">
+    <inertial>
+      <origin
+        xyz="-0.00077105796476532 0.00971959315377746 0.00999999999999904"
+        rpy="0 0 0" />
+      <mass
+        value="0.00277406773557276" />
+      <inertia
+        ixx="1.47877580081592E-06"
+        ixy="-6.29590944393266E-09"
+        ixz="2.12473742267117E-20"
+        iyy="1.54068706060032E-06"
+        iyz="-2.53199139789704E-23"
+        izz="6.9326362321011E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/scale15.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.717647058823529 0.819607843137255 0.701960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/scale15.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link30"
+    type="fixed">
+    <origin
+      xyz="-0.037000000000001 -0.00399999999999978 0.01"
+      rpy="3.14159265358979 0 -1.5707963267949" />
+    <parent
+      link="slide_key2" />
+    <child
+      link="scale15" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="scale16">
+    <inertial>
+      <origin
+        xyz="0.00180494203523472 0.00171959315377845 -2.77555756156289E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.00277406773557275" />
+      <inertia
+        ixx="1.47877580081592E-06"
+        ixy="-6.29590944393176E-09"
+        ixz="7.09110049336236E-22"
+        iyy="1.54068706060031E-06"
+        iyz="-9.12836785751222E-24"
+        izz="6.93263623210107E-08" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/scale16.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.717647058823529 0.819607843137255 0.701960784313725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/scale16.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link31"
+    type="fixed">
+    <origin
+      xyz="0 -0.00142400000000099 0.045"
+      rpy="1.5707963267949 0 -1.5707963267949" />
+    <parent
+      link="slide_key2" />
+    <child
+      link="scale16" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="Slide_key_joint_single1">
+    <inertial>
+      <origin
+        xyz="-1.94289029309402E-16 0.0040064006005785 0.0345669419794044"
+        rpy="0 0 0" />
+      <mass
+        value="0.0205196549446733" />
+      <inertia
+        ixx="8.52952925068962E-06"
+        ixy="-5.77787031922888E-22"
+        ixz="3.54132563846202E-20"
+        iyy="1.06743834501377E-05"
+        iyz="-1.03900638216363E-08"
+        izz="2.36373305241899E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/Slide_key_joint_single1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.501960784313725 0.266666666666667 0.568627450980392 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://modulessai/meshes/Slide_key_joint_single1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="link15"
+    type="fixed">
+    <origin
+      xyz="-0.037000000000001 -0.00399999999999981 0"
+      rpy="1.3049499870484 -1.57079631189374 0.265634018818777" />
+    <parent
+      link="slide_key" />
+    <child
+      link="Slide_key_joint_single1" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>
