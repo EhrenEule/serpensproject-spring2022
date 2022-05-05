@@ -13,9 +13,10 @@ We used an OpenCM 9.04 with the OpenCM 450 XP expansion pack circuit board(CB) f
 To avoid some extra work, you can open the .bashrc file (you can see it from the files if you type ctrl+h to show hidden filles, and write on the very end: source /opt/ros/noetic/setup.bash cd catkin_ws source devel/setup.bash cd .. This will setup ROS for you each time you open a new terminal, so you avoid writing the same thing over and over
 --> Don't forget that each time you change a script for the Serpens you must run the command catkin_make
 
-Projects you need to clone into your src Folder!!!
+You need to clone the following two github projects in your catkin_ws/src folder 
 
-gazebo_ros_demos (https://github.com/ros-simulation/gazebo_ros_demos) rosserial (https://github.com/ros-drivers/rosserial) dynamixel-workbench (https://github.com/ROBOTIS-GIT/dynamixel-workbench) DynamixelSDK (https://github.com/ROBOTIS-GIT/DynamixelSDK) dynamixel-workbench-msgs (https://github.com/ROBOTIS-GIT/dynamixel-workbench-msgs) dynamixel_motor (https://github.com/arebgun/dynamixel_motor)
+rosserial (https://github.com/ros-drivers/rosserial) 
+DynamixelSDK (https://github.com/ROBOTIS-GIT/DynamixelSDK)
 
 COMMANDS TO CONTROL THE GAZEBO DIGITAL TWIN:
 
