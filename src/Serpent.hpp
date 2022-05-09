@@ -1,16 +1,32 @@
+/*
+ * Header file for the serpent project
+ */ 
+
 #include "dynamixel_sdk/dynamixel_sdk.h"
 #include <ros/ros.h>
 #include "serpent/Position.h"
 #include <stdexcept>
+#include <cstdlib>
+
+using namespace std;
+
+//not quite sure if needed maybe kick out later
+#include "std_msgs/String.h"
+#include "std_msgs/Float64.h"
 
 
 using namespace dynamixel;
 
 
 // Control table address
-#define ADDR_TORQUE_ENABLE    64
+#define ADDR_TORQUE_ENABLE	  64
 #define ADDR_GOAL_POSITION    116
 #define ADDR_PRESENT_POSITION 132
+
+#define ADDR_P_GAIN_POSITION  84	
+#define ADDR_I_GAIN_POSITION  82	
+#define ADDR_D_GAIN_POSITION  80
+
 
 // Protocol version
 #define PROTOCOL_VERSION      2.0             // Default Protocol version of DYNAMIXEL X series.
@@ -21,7 +37,8 @@ using namespace dynamixel;
 #define DEVICE_NAME           "/dev/ttyACM0"  // [Linux] To find assigned port, use "$ ls /dev/ttyUSB*" command
 
 #define ANGLE_TO_POS(x) (x*11.375)
-#define POS_2_ANGLE(x) (x/11.375)
+#define POS_TO_ANGLE(x) (x/11.375)
+#define ANGLE_TO_RADIANT(x) ((x*2*M_PI)/360)
 
 
 
@@ -39,5 +56,13 @@ class Dynamixel_movement
 				
 		Dynamixel_movement(ros::NodeHandle *nh, int id);	
 		void set_dynamixel_position(int);
-		void get_dynamixel_position();
+		int get_dynamixel_position();
+		void set_dynamixel_PID(int p, int i, int d);
+
 };
+
+//not implemented right now, also not quite sure if I can have the function prototypes just in here without a class
+void setPosition(int id, int angle, ros::Publisher set_pos_pub, ros::Publisher set_gazebo_pos_1_pub); 	//function prototype
+void getPosition(int id, ros::Publisher get_position_pub); 	//function prototype
+
+

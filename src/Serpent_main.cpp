@@ -3,29 +3,40 @@
  * 	-create new classes to create publisher objects, one for the physical robot and one for the gazebo model 
  * 		with set_position and get_poisition functions
  * 	
- * 	-check how to integrate PID
+ * 	-c[DONE] heck how to integrate PID
  *  
- * 	-update github so its just the project 
+ * 	[DONE] -update github so its just the project 
  * 
  * 	-implement the serpent digital twin model so it works with the code 
  * 
  * 	-create 2 launch files, one to only control the motor and one to control the motor and the digital twin at the same time
  * 
- * 	TODO NOW: check gazebo model and try to make it listen to the set_position_topic
- * `
+ * 	TODO NOW: check gazebo model and try to make it listen to the set_position_topic`
+ * 
+ * 	-Check this for PID (https://emanual.robotis.com/docs/en/dxl/x/xm430-w210/#position-d-gain)
+ * 
+ * 	-create folder in catkin_ws/src that has the gazebo and the serpens project in it and name is properly 
  */
 
-#include "Serpent_main.hpp"
+#include "Serpent.hpp"
 
-using namespace dynamixel;
-
-#define DE_2_R(x) ((x*2*M_PI)/360)
-#define DIGITAL_TWIN
+//#define DIGITAL_TWIN
 
 int main(int argc, char ** argv)
 {
+	
   ros::init(argc, argv, "read_write_node");
   ros::NodeHandle nh;
+  
+  //std::boolean digital_twin =  nh.hasParam("digital_twin");
+  //nh.hasParam("digital_twin", digital_twin);
+  
+	/*if(nh.hasParam("cock") 
+	{	
+		ROS_INFO("Cock digtial twin activaed");	
+	}*/
+  //if( !digital_twin ) {	ROS_INFO("digtial twin not activaed");	}
+
   Dynamixel_movement dynamixel_obj = Dynamixel_movement(&nh, DXL1_ID);
   
   //if def digital twin
@@ -40,44 +51,65 @@ int main(int argc, char ** argv)
 	#endif  
 #endif
 
-  //Rate in Hertz
-  ros::Rate r(100);
+
+	//set PID values
+	//intital values (800,0,0)
+	dynamixel_obj.set_dynamixel_PID(800,0,0);
+
+	//Rate in Hertz
+	ros::Rate r(100);
 	
-	int counter =0;
+	//only to test the PID values
+	int counter = 0;
+	int error = 0; 
+	
+	int set_position =0;
 	bool is_incrementing = true;
+	int received_angle_position = 0;
   
   while (ros::ok())
   {
+	if(counter == 1000) 
+	{	
+		ROS_INFO("average error in degrees %d" , error/counter);
+		break; 
+	} 
 	
-	if(counter >= 180) 
+	if(set_position >= 180) 
 	{ 
 		is_incrementing = false; 
-		counter--;
+		set_position--;
 	}
-	else if(counter<=0)
+	else if(set_position <= 0)
 	{
 		is_incrementing = true;
-		counter++;
+		set_position++;
 	}
 	else if(is_incrementing == true)
 	{
-		counter++;
-		dynamixel_obj.set_dynamixel_position(counter);
-		dynamixel_obj.get_dynamixel_position();
+		set_position++;
+		dynamixel_obj.set_dynamixel_position(set_position);
+		error = error + abs(set_position - dynamixel_obj.get_dynamixel_position());
 	}
 	else if(is_incrementing == false)
 	{
-		counter--;
-		dynamixel_obj.set_dynamixel_position(counter);
-		dynamixel_obj.get_dynamixel_position();
+		set_position--;
+		dynamixel_obj.set_dynamixel_position(set_position);
+		error = error + abs(set_position - dynamixel_obj.get_dynamixel_position());	
 	}
+	
+	counter++;
 
-  ros::spinOnce();
-  r.sleep();
+	//received_angle_position = dynamixel_obj.get_dynamixel_position();
+	ros::spinOnce();
+	r.sleep();
 
 	}
+	
   return 0;
 }
+
+
 
 
 /*
