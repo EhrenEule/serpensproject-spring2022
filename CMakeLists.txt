@@ -20,10 +20,7 @@ find_package(catkin REQUIRED COMPONENTS
 
 
 ## Generate messages in the 'msg' folder
- add_message_files(
-   FILES
-	Position.msg
-)
+ add_message_files( DIRECTORY msg FILES Position.msg )
 
 
 
@@ -39,7 +36,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
 #  INCLUDE_DIRS include
 
-  CATKIN_DEPENDS dynamixel_sdk roscpp std_msgs
+  CATKIN_DEPENDS dynamixel_sdk roscpp std_msgs message_runtime
 #  DEPENDS system_lib
 )
 
@@ -62,6 +59,8 @@ add_library(Dynamixel_movement src/Dynamixel_movement)
 
 add_executable(Serpent_main src/Serpent_main.cpp src/Dynamixel_movement)
 add_dependencies(Serpent_main ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+add_dependencies(Serpent_main serpent_generate_messages_cpp)
+
 target_link_libraries(Serpent_main ${catkin_LIBRARIES})
 target_link_libraries(Serpent_main Dynamixel_movement)
 
