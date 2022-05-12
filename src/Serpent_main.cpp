@@ -2,10 +2,6 @@
  *  
  * 	-create new classes to create publisher objects, one for the physical robot and one for the gazebo model 
  * 		with set_position and get_poisition functions
- * 	
- * 	-c[DONE] heck how to integrate PID
- *  
- * 	[DONE] -update github so its just the project 
  * 
  * 	-implement the serpent digital twin model so it works with the code 
  * 
@@ -13,9 +9,14 @@
  * 
  * 	TODO NOW: check gazebo model and try to make it listen to the set_position_topic`
  * 
- * 	-Check this for PID (https://emanual.robotis.com/docs/en/dxl/x/xm430-w210/#position-d-gain)
  * 
- * 	-create folder in catkin_ws/src that has the gazebo and the serpens project in it and name is properly 
+ * 	-check why project can't be build on other systems 
+ * 
+ *  -
+ * 
+ *  -maybe have a look how to create a user interface
+ * 
+ *  -check how to kill program by command so it goes to 0 
  */
 
 #include "Serpent.hpp"
@@ -31,9 +32,9 @@ int main(int argc, char ** argv)
   //std::boolean digital_twin =  nh.hasParam("digital_twin");
   //nh.hasParam("digital_twin", digital_twin);
   
-	/*if(nh.hasParam("cock") 
+	/*if(nh.hasParam("twin") 
 	{	
-		ROS_INFO("Cock digtial twin activaed");	
+		ROS_INFO("digtial twin activaed");	
 	}*/
   //if( !digital_twin ) {	ROS_INFO("digtial twin not activaed");	}
 
@@ -52,35 +53,45 @@ int main(int argc, char ** argv)
 #endif
 
 
-	//set PID values
+	//set PID values here
 	//intital values (800,0,0)
 	dynamixel_obj.set_dynamixel_PID(800,0,0);
 
 	//Rate in Hertz
 	ros::Rate r(100);
 	
-	//only to test the PID values
-	int counter = 0;
-	int error = 0; 
+	//this variable defines how often the while loop is going to be executed	
+	int loop_repetitions = 500;
 	
-	int set_position =0;
+	//this is the maximum angle the motor will go to
+	//you can change this variable to whichever angle you want
+	int max_angle = 50;
+	
+	//this is the minimum angle the motor will go to
+	//you can change this variable to whichever angle you want
+	int min_angle = 0;
+	
+	//the following variables are just helping variables and are not supposed to be changed
+	int error = 0; 
 	bool is_incrementing = true;
 	int received_angle_position = 0;
-  
+	int counter = 0;
+	int set_position =0;
+
   while (ros::ok())
   {
-	if(counter == 1000) 
+	if(counter>= loop_repetitions && counter%max_angle == 0) 
 	{	
-		ROS_INFO("average error in degrees %d" , error/counter);
+		ROS_INFO("Program finished/ Average error: %f",(double) error/counter);
 		break; 
 	} 
 	
-	if(set_position >= 180) 
+	if(set_position >= max_angle) 
 	{ 
 		is_incrementing = false; 
 		set_position--;
 	}
-	else if(set_position <= 0)
+	else if(set_position <= min_angle)
 	{
 		is_incrementing = true;
 		set_position++;
@@ -95,17 +106,15 @@ int main(int argc, char ** argv)
 	{
 		set_position--;
 		dynamixel_obj.set_dynamixel_position(set_position);
+		
+		//here the error gets calculated and the get_dynamixel_position() function gets called
 		error = error + abs(set_position - dynamixel_obj.get_dynamixel_position());	
 	}
 	
 	counter++;
-
-	//received_angle_position = dynamixel_obj.get_dynamixel_position();
 	ros::spinOnce();
 	r.sleep();
-
 	}
-	
   return 0;
 }
 
