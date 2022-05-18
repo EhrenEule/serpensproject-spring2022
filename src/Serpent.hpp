@@ -1,18 +1,22 @@
 /*
  * Header file for the serpent project
- */ 
+
+*/
+
+#ifndef SERPENT_HPP
+#define SERPENT_HPP
+
 
 #include "dynamixel_sdk/dynamixel_sdk.h"
 #include <ros/ros.h>
 #include "serpent/Position.h"
 #include <stdexcept>
 #include <cstdlib>
+#include "std_msgs/Float64.h"
+
 
 using namespace std;
 
-//not quite sure if needed maybe kick out later
-#include "std_msgs/String.h"
-#include "std_msgs/Float64.h"
 
 
 using namespace dynamixel;
@@ -41,11 +45,9 @@ using namespace dynamixel;
 #define ANGLE_TO_RADIANT(x) ((x*2*M_PI)/360)
 
 
-
 class Dynamixel_movement
 {
 	public:
-	
 		int id;
 		ros::Publisher set_pub;
 		ros::Publisher get_pub;
@@ -61,8 +63,18 @@ class Dynamixel_movement
 
 };
 
-//not implemented right now, also not quite sure if I can have the function prototypes just in here without a class
-void setPosition(int id, int angle, ros::Publisher set_pos_pub, ros::Publisher set_gazebo_pos_1_pub); 	//function prototype
-void getPosition(int id, ros::Publisher get_position_pub); 	//function prototype
+class Gazebo_movement
+{
+	public:
+		ros::Publisher set_gazebo_pos_pub;
+		
+		Gazebo_movement(ros::NodeHandle *nh);
+		void set_gazebo_position(int);
+		int get_gazebo_position();
+};
 
+bool caliber_dynamixel(Dynamixel_movement dynamixel_obj, int initial_position, bool is_initial_pos_smaller_than_current_pos); //function prototype
+
+
+#endif
 

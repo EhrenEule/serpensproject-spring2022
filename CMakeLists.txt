@@ -56,13 +56,16 @@ include_directories(
 #   src/${PROJECT_NAME}/my_dynamixel_ros.cpp
 # )
 add_library(Dynamixel_movement src/Dynamixel_movement)
+add_library(Gazebo_movement src/Gazebo_movement)
 
-add_executable(Serpent_main src/Serpent_main.cpp src/Dynamixel_movement)
+add_executable(Serpent_main src/Serpent_main.cpp src/Dynamixel_movement src/Gazebo_movement)
+
 add_dependencies(Serpent_main ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 add_dependencies(Serpent_main serpent_generate_messages_cpp)
 
 target_link_libraries(Serpent_main ${catkin_LIBRARIES})
 target_link_libraries(Serpent_main Dynamixel_movement)
+target_link_libraries(Serpent_main Gazebo_movement)
 
 
 #add_executable(Dynamixel_movement src/Dynamixel_movement.cpp)

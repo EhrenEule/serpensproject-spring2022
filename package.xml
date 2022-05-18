@@ -2,7 +2,7 @@
 <package format="2">
   <name>serpent</name>
   <version>0.0.0</version>
-  <description>The my_dynamixel_ros package</description>
+  <description>The serpens package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->

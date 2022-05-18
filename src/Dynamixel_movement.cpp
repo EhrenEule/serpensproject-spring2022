@@ -1,6 +1,7 @@
 #include "Serpent.hpp"
 
 
+
 Dynamixel_movement::Dynamixel_movement(ros::NodeHandle *nh, int call_id)
 {
 	id = call_id;
@@ -18,7 +19,7 @@ Dynamixel_movement::Dynamixel_movement(ros::NodeHandle *nh, int call_id)
 }
 
 /*
- * This function takes an angle as an int and sets the motor to that angl,
+ * This function takes an angle as an int and sets the motor to that angle,
  * afterwards it also publishes the previously sent angle on the rostopic /set_position_topic
  */ 
 void Dynamixel_movement::set_dynamixel_position(int angle)

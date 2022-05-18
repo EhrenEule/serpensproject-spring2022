@@ -9,19 +9,22 @@
  * 
  * 	TODO NOW: check gazebo model and try to make it listen to the set_position_topic`
  * 
- * 
  * 	-check why project can't be build on other systems 
+ *  *  * 
  * 
- *  -
+ * 	 _DIGITAL TWIN CHECK HOW TO DUPLICATE ONE SHELL OF THE SERPENT with a specific distance and connect them manually 
  * 
- *  -maybe have a look how to create a user interface
+ * 	also position the model verticaly
  * 
- *  -check how to kill program by command so it goes to 0 
+ *  check how i can read the angle from the gazebo model and plot it 
+ * 
+ * write function that sets the motor to the initial position smoothly
+ * 
  */
 
 #include "Serpent.hpp"
 
-//#define DIGITAL_TWIN
+#define DIGITAL_TWIN
 
 int main(int argc, char ** argv)
 {
@@ -29,64 +32,56 @@ int main(int argc, char ** argv)
   ros::init(argc, argv, "read_write_node");
   ros::NodeHandle nh;
   
-  //std::boolean digital_twin =  nh.hasParam("digital_twin");
-  //nh.hasParam("digital_twin", digital_twin);
-  
-	/*if(nh.hasParam("twin") 
-	{	
-		ROS_INFO("digtial twin activaed");	
-	}*/
-  //if( !digital_twin ) {	ROS_INFO("digtial twin not activaed");	}
-
   Dynamixel_movement dynamixel_obj = Dynamixel_movement(&nh, DXL1_ID);
   
-  //if def digital twin
-	//Gazebo_movement gazebo_obj = Gazebo_movement(&nh, DXL1)
-  
-  /*
- * Creates the ros topics for the digital twin if it is defined 
- */ 
-#ifdef DIGITAL_TWIN		
-	#ifdef DXL1_ID
-		ros::Publisher set_gazebo_pos_1_pub = nh.advertise<std_msgs::Float64>("/rrbot/joint1_position_controller/command", 1000);
-	#endif  
-#endif
-
+  Gazebo_movement gazebo_obj = Gazebo_movement(&nh);
 
 	//set PID values here
 	//intital values (800,0,0)
 	dynamixel_obj.set_dynamixel_PID(800,0,0);
 
-	//Rate in Hertz
+	//Rate of the while(ros::ok()) loop in Hertz
 	ros::Rate r(100);
 	
 	//this variable defines how often the while loop is going to be executed	
-	int loop_repetitions = 500;
+	int max_loops = 5;
 	
 	//this is the maximum angle the motor will go to
-	//you can change this variable to whichever angle you want
-	int max_angle = 50;
+	int max_angle = 180;
 	
 	//this is the minimum angle the motor will go to
-	//you can change this variable to whichever angle you want
-	int min_angle = 0;
+	int min_angle = 100;
+	
+	//this is the initial position
+	int initial_position =100;
+
 	
 	//the following variables are just helping variables and are not supposed to be changed
 	int error = 0; 
+	int current_loop = -1;
 	bool is_incrementing = true;
 	int received_angle_position = 0;
 	int counter = 0;
-	int set_position =0;
+	int set_position= initial_position;
+	bool is_calibered = false;
+	
+	bool is_initial_pos_smaller_than_current_pos;
+	if(initial_position <= dynamixel_obj.get_dynamixel_position()) { is_initial_pos_smaller_than_current_pos = true; }
 
   while (ros::ok())
   {
-	if(counter>= loop_repetitions && counter%max_angle == 0) 
+	if(is_calibered == false)
+	{
+		is_calibered = caliber_dynamixel(dynamixel_obj, initial_position, is_initial_pos_smaller_than_current_pos);
+	}
+	  
+	else if(current_loop == max_loops) 
 	{	
 		ROS_INFO("Program finished/ Average error: %f",(double) error/counter);
 		break; 
 	} 
 	
-	if(set_position >= max_angle) 
+	else if(set_position >= max_angle) 
 	{ 
 		is_incrementing = false; 
 		set_position--;
@@ -95,21 +90,23 @@ int main(int argc, char ** argv)
 	{
 		is_incrementing = true;
 		set_position++;
+		current_loop++;
 	}
 	else if(is_incrementing == true)
 	{
-		set_position++;
+		gazebo_obj.set_gazebo_position(set_position);
 		dynamixel_obj.set_dynamixel_position(set_position);
 		error = error + abs(set_position - dynamixel_obj.get_dynamixel_position());
+		set_position++;
 	}
 	else if(is_incrementing == false)
 	{
-		set_position--;
+		gazebo_obj.set_gazebo_position(set_position);
 		dynamixel_obj.set_dynamixel_position(set_position);
-		
 		//here the error gets calculated and the get_dynamixel_position() function gets called
 		error = error + abs(set_position - dynamixel_obj.get_dynamixel_position());	
-	}
+		set_position--;
+	} 
 	
 	counter++;
 	ros::spinOnce();
@@ -118,64 +115,34 @@ int main(int argc, char ** argv)
   return 0;
 }
 
-
-
-
-/*
- * Sets the position of the Dynamixel
- * 
- * id: the id of the dynamixel
- * angle: the desired angle of the motor
- * set_position_pub: The publisher object that publishes the angle and id onto a topic
- */ 
-/*void setPosition(int id, int angle, ros::Publisher set_position_pub, ros::Publisher set_gazebo_pos_1_pub)
+bool caliber_dynamixel(Dynamixel_movement dynamixel_obj, int initial_position, bool is_initial_pos_smaller_than_current_pos)
 {
-	dxl_error = 0;
-	dxl_comm_result = COMM_TX_FAIL;
-  
-	serpent::Position set_msg;
-	set_msg.id = id;
-	set_msg.position = ANGLE_TO_POS(angle);
-	set_msg.angle = angle;
-	set_position_pub.publish(set_msg);
-	   
-	dxl_comm_result = packetHandler->write4ByteTxRx(
-    portHandler, set_msg.id, ADDR_GOAL_POSITION, set_msg.position, &dxl_error);
-    
-    #ifdef DXL1_ID 
-			if(id == DXL1_ID)
-			{
-				std_msgs::Float64 msg;
-				msg.data = DE_2_R(angle);
-				set_gazebo_pos_1_pub.publish(msg);
-			}
-    #endif
+	//then it should decremenet until this is not the case anymore
+	if(is_initial_pos_smaller_than_current_pos == true)
+	{
+		if(dynamixel_obj.get_dynamixel_position() < initial_position) 
+		{
+			return true;	
+		}
+		else 
+		{ 
+			dynamixel_obj.set_dynamixel_position(dynamixel_obj.get_dynamixel_position() - 2);
+			return false;	
+		}
+	}
+	//then it should increment until current_position is smaller or equal to initial position
+	else
+	{
+		if(dynamixel_obj.get_dynamixel_position() >= initial_position) 
+		{
+			return true;	
+		}
+		else 
+		{ 
+			dynamixel_obj.set_dynamixel_position(dynamixel_obj.get_dynamixel_position() + 2);
+			return false;	
+		}
+	}
 }
-
-/*
- * Gets the position of the Dynamixel
- * 
- * id: the id of the dynamixel
- * get_position_pub: The publisher object that publishes the received position onto a topic 
- 
-void getPosition(int id, ros::Publisher get_position_pub)
-{
-	int received_position = 0;
-	
-	dxl_comm_result = packetHandler->read4ByteTxRx(
-    portHandler, id, ADDR_PRESENT_POSITION, (uint32_t *)&received_position, &dxl_error);
-    
-    
-   	serpent::Position get_msg;
-	get_msg.id = id;
-	get_msg.position = received_position;
-	get_msg.angle = POS_2_ANGLE(received_position);
-	get_position_pub.publish(get_msg);
-	
-	#ifdef DIGITAL_TWIN
-		
-    #endif
-}
-*/
 
 
