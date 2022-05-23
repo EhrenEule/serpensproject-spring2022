@@ -2,16 +2,15 @@
 
 Repository for the EPS-Serpens project in the spring semester 2022. 
 This repository only includes the catkin package with the ROS code.
-You can find the catkin package including the gazebo code for the virtual twin here.
-https://github.com/EhrenEule/serpensproject-spring2022-gazebo
+You can find the catkin package including the gazebo code for the virtual twin [here](https://github.com/EhrenEule/serpensproject-spring2022-gazebo).
 
 ### Dependencies:
 
 You need to clone the following two github projects in your catkin_ws/src folder 
 
-rosserial (https://github.com/ros-drivers/rosserial) 
+[rosserial](https://github.com/ros-drivers/rosserial) 
 
-DynamixelSDK (https://github.com/ROBOTIS-GIT/DynamixelSDK)
+[DynamixelSDK](https://github.com/ROBOTIS-GIT/DynamixelSDK)
 
 
 ### Tips for the next group:
